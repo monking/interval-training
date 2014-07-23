@@ -8,13 +8,13 @@ angular
   timer = this;
 
   $scope.intervals = [10,5,10,5];
-  $scope.reps = 2;
+  $scope.sets = 2;
 
-  timer.start = function(intervals, reps) {
+  timer.start = function(intervals, sets) {
     timer.intervals = intervals;
-    timer.reps = reps;
+    timer.sets = sets;
 
-    timer.repIndex = 0;
+    timer.setIndex = 0;
     timer.intervalIndex = 0;
     timer.timeRemaining = intervals[0];
 
@@ -28,9 +28,9 @@ angular
     if ( timer.timeRemaining === 0 ) {
       timer.intervalIndex = ( timer.intervalIndex + 1 ) % timer.intervals.length;
       if ( timer.intervalIndex === 0 ) {
-        timer.repIndex++;
+        timer.setIndex++;
       }
-      if ( timer.repIndex < timer.reps ) {
+      if ( timer.setIndex < timer.sets ) {
         timer.timeRemaining = timer.intervals[timer.intervalIndex];
         speak();
       }
@@ -39,7 +39,7 @@ angular
   }
 
   function nextStep() {
-    if ( timer.repIndex < timer.reps ) {
+    if ( timer.setIndex < timer.sets ) {
       stepTimeout = $timeout( function() { step(); }, 1000 );
     }
   }
@@ -56,8 +56,8 @@ angular
 
     play('audio-count-'+(timer.intervalIndex + 1), 500);
     play('audio-interval', 700);
-    play('audio-rep', 300);
-    play('audio-'+(timer.repIndex + 1));
+    play('audio-set', 300);
+    play('audio-'+(timer.setIndex + 1));
   }
 
 });

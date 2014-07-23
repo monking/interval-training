@@ -16,19 +16,19 @@
   <input type="number" ng-model="intervals[2]">
   <input type="number" ng-model="intervals[3]">
 </label>
-<label>Reps
-  <input type="number" ng-model="reps">
+<label>Sets
+  <input type="number" ng-model="sets">
 </label>
-<button ng-click="timer.start(intervals, reps)">Start</button>
+<button ng-click="timer.start(intervals, sets)">Start</button>
 
 <div ng-show="timer.timeRemaining">
   <div class="time">{{timer.timeRemaining}}</div>
   <div class="interval">interval: {{timer.intervalIndex + 1}}</div>
-  <div class="rep">rep: {{timer.repIndex + 1}}</div>
+  <div class="set">set: {{timer.setIndex + 1}}</div>
 </div>
 
 <div class="audio">
-  <audio id="audio-rep" src="audio/rep.wav"></audio>
+  <audio id="audio-set" src="audio/set.wav"></audio>
   <audio id="audio-interval" src="audio/interval.wav"></audio>
   <audio id="audio-1" src="audio/1.wav"></audio>
   <audio id="audio-2" src="audio/2.wav"></audio>
