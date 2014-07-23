@@ -2,7 +2,7 @@
 
 An _exercise_ in Angular.
 
-## Installation
+## installation
 
 Setup [Bower](https://github.com/bower/bower) for dependencies:
 ```
@@ -21,6 +21,7 @@ On Mac, run:
 bash audio/generate-audio.sh say
 ```
 
+## extra
 You can add more counting sounds by adding a number after the speech program, as in
 ```
 #Ubuntu
@@ -29,3 +30,5 @@ bash audio/generate-audio.sh espeak 30
 #Mac
 bash audio/generate-audio.sh say 30
 ```
+
+If you specify `0`, then you'll enter the interactive timer.
