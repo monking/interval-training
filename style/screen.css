@@ -1,0 +1,13 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+.time {
+  font-size: 6em;
+  text-align: center;
+}
+label {
+  display: block;
+}
+.audio {
+  display: none;
+}

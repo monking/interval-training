@@ -1,0 +1,25 @@
+{
+  "name": "interval-training",
+  "version": "0.0.0",
+  "authors": [
+    "Christopher Lovejoy <c@lovejoy.io>"
+  ],
+  "description": "browser-based interval workout timer",
+  "main": "app.js",
+  "keywords": [
+    "exercise"
+  ],
+  "license": "MIT",
+  "homepage": "http://sandbox.lovejoy.io/interval-training/",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.20"
+  }
+}
