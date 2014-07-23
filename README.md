@@ -1,6 +1,6 @@
 # Interval Training
 
-An _exercise_ in Angular.
+An _exercise_ in Angular ~\_^
 
 ## installation
 
