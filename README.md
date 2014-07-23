@@ -50,3 +50,4 @@ This is easiest if you define an alias:
 alias interval="bash /PATH/TO/REPO/audio/generate-audio.sh say 0"
 interval 3 5-rest 30-work
 ```
+_This example uses Mac `say`; use `espeak` if you're on GNU/Linux._
