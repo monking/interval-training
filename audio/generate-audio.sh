@@ -34,6 +34,27 @@ function is_integer() {
   return $?
 }
 
+function from_seconds() {
+  if [[ $1 -ge 3600 ]]; then
+    echo $(($1 / 3600)) hours
+  elif [[ $1 -ge 60 ]]; then
+    echo $(($1 / 60)) minutes
+  else
+    echo $(($1)) seconds
+  fi
+}
+
+function to_seconds() {
+  read quantity unit <<< $(sed -E 's/([0-9]+)([smh])?/\1 \2/' <<< $1)
+  if [[ h = $unit ]]; then
+    echo $(($quantity * 3600))
+  elif [[ m = $unit ]]; then
+    echo $(($quantity * 60))
+  else
+    echo $quantity
+  fi
+}
+
 
 if [[ $count != 0 ]]; then
   say_this "set" $dir/set.wav
@@ -57,11 +78,11 @@ else
     i=0
     for interval in $intervals; do
       i=$(($i+1))
-      time=$(sed -E 's/^([0-9]+)-?.*$/\1/' <<< $interval)
-      message=$(sed -E 's/^[0-9]+-?(.*)$/\1/' <<< $interval)
+      time=$(to_seconds $(sed -E 's/^([0-9]+[smh]?)-?.*$/\1/' <<< $interval))
+      message=$(sed -E 's/^[0-9]+[smh]?-?(.*)$/\1/' <<< $interval)
       if [[ -z $message ]]; then message="$(nth $i) interval"; fi
-      say_this "$message, $time seconds, set $s" &
-      sleep $interval
+      say_this "$message, $(from_seconds $time), set $s" &
+      sleep $time
     done
   done
   say_this "DONE!" &
